@@ -28,10 +28,10 @@ const Footer = () => {
           Created by Krystian Kopeć 2021
         </Typography>
         <Typography variant="h6" component="div">
-          <FacebookIcon className="icons" />
-          <TwitterIcon className="icons" />
-          <InstagramIcon className="icons" />
-          <YouTubeIcon className="icons" />
+          <FacebookIcon htmlColor="#a3a3a3" className="icons" />
+          <TwitterIcon htmlColor="#a3a3a3" className="icons" />
+          <InstagramIcon htmlColor="#a3a3a3" className="icons" />
+          <YouTubeIcon htmlColor="#a3a3a3" className="icons" />
         </Typography>
       </Container>
     </>
