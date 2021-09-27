@@ -1,0 +1,26 @@
+body {
+  padding-right: 0 !important;
+  overflow: visible !important;
+}
+
+.menu-item,
+menu {
+  width: 250px !important;
+  min-width: 250px !important;
+  font-size: 20px !important;
+}
+
+.toolbar {
+  background-color: #7f5ef5 !important;
+  padding: 0 !important;
+}
+
+.toolbar-container {
+  padding: 0 !important;
+  margin-left: 0 !important;
+}
+
+.icon-container svg {
+  min-width: 36px !important;
+  min-height: 36px !important;
+}
