@@ -1,0 +1,27 @@
+.title-container {
+  margin-top: 9%;
+  margin-left: 9%;
+  width: 100%;
+  height: 150px;
+}
+
+.main-button {
+  width: 650px;
+  height: 100px;
+  background-color: #7f5ef5 !important;
+  font-size: 20px !important;
+}
+
+.main-title {
+  height: 5%;
+  font-size: 4em;
+  color: #fff;
+  line-height: 1.7;
+}
+
+.button-container {
+  width: 100%;
+  height: 200px;
+  margin-top: 2%;
+  margin-left: 28%;
+}
