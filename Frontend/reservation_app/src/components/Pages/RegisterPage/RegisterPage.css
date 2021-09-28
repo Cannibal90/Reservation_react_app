@@ -1,0 +1,31 @@
+.signup-paper {
+  padding: 10px;
+  height: 85vh;
+  width: 400px;
+  margin: 10px auto;
+}
+
+@media (min-width: 1920px) {
+  .signup-paper {
+    padding: 20px;
+    height: 65vh;
+    width: 400px;
+    margin: 20px auto;
+  }
+}
+
+.avatar-color {
+  background-color: #7f5ef5 !important;
+}
+
+.sign-button {
+  color: #fff !important;
+  background-color: #7f5ef5 !important;
+}
+
+.sign-button:hover {
+  background-color: #987ef7 !important;
+}
+.signin {
+  margin-top: 2% !important;
+}

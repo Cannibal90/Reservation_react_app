@@ -1,0 +1,29 @@
+.signin-paper {
+  padding: 20px;
+  height: 50vh;
+  width: 400px;
+  margin: 20px auto;
+}
+
+.avatar-color {
+  background-color: #7f5ef5 !important;
+}
+
+.sign-button {
+  color: #fff !important;
+  background-color: #7f5ef5 !important;
+}
+
+.sign-button:hover {
+  background-color: #987ef7 !important;
+}
+
+.signup {
+  margin-top: 18% !important;
+}
+
+@media (min-width: 1920px) {
+  .signup {
+    margin-top: 46% !important;
+  }
+}
