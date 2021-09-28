@@ -6,6 +6,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import { AccountCircle } from "@mui/icons-material";
 import { Container, Menu, MenuItem } from "@mui/material";
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 const Header = () => {
@@ -80,12 +81,20 @@ const Header = () => {
             open={el}
             onClose={handleClose}
           >
-            <MenuItem className="menu-item" onClick={handleClose}>
-              Register
-            </MenuItem>
-            <MenuItem className="menu-item" onClick={handleClose}>
-              Login
-            </MenuItem>
+            <Link to="/register">
+              <MenuItem
+                className="menu-item"
+                href="/register"
+                onClick={handleClose}
+              >
+                Register
+              </MenuItem>
+            </Link>
+            <Link to="/login">
+              <MenuItem className="menu-item" onClick={handleClose}>
+                Login
+              </MenuItem>
+            </Link>
           </Menu>
         </Toolbar>
       </AppBar>

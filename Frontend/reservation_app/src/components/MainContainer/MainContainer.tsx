@@ -1,13 +1,12 @@
-import { Container } from "@mui/material";
 import React from "react";
-import StartPage from "../Pages/startpage/Startpage";
 import "./MainContainer.css";
+import MainRouting from "./MainRouting";
 
 const MainContainer = () => {
   return (
     <div className="background-container ">
       <div className="main-container">
-        <StartPage />
+        <MainRouting />
       </div>
     </div>
   );
