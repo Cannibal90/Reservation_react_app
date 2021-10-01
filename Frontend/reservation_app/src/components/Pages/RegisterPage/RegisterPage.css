@@ -1,6 +1,6 @@
 .signup-paper {
   padding: 10px;
-  height: 85vh;
+  height: 100vh;
   width: 400px;
   margin: 10px auto;
 }
@@ -8,10 +8,18 @@
 @media (min-width: 1920px) {
   .signup-paper {
     padding: 20px;
-    height: 65vh;
+    height: 75vh;
     width: 400px;
     margin: 20px auto;
   }
+}
+
+.css-wb57ya-MuiFormControl-root-MuiTextField-root {
+  height: 60px !important;
+}
+
+.css-1d1r5q-MuiFormHelperText-root {
+  color: red !important;
 }
 
 .avatar-color {
@@ -28,4 +36,8 @@
 }
 .signin {
   margin-top: 2% !important;
+}
+
+.link-color {
+  color: blue;
 }

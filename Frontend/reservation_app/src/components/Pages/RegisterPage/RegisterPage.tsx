@@ -3,13 +3,16 @@ import {
   Avatar,
   Button,
   Grid,
-  Link,
   Paper,
   TextField,
   Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { UserRegister } from "../../../models/UserInterfaces";
+import { UserService } from "../../../services/user/userService";
+import { showMessage } from "../../../store/actions/messageAction";
+import { store } from "../../../store/store";
 import "./RegisterPage.css";
 
 const RegisterPage = () => {
@@ -22,8 +25,85 @@ const RegisterPage = () => {
     age: 0,
     city: "",
   });
+  const [validationMessages, setValidationMessages] = useState<any>({
+    username: "",
+    password: "",
+    email: "",
+    name: "",
+    surname: "",
+    age: "",
+    city: "",
+  });
+
+  const userService = new UserService();
+
+  const validateFields = () => {
+    return Boolean(
+      userCredentials.username.length < 2 ||
+        userCredentials.password.length < 2 ||
+        userCredentials.email.length < 2 ||
+        userCredentials.name.length < 2 ||
+        userCredentials.surname.length < 2 ||
+        userCredentials.city.length < 2 ||
+        userCredentials.age < 1
+    );
+  };
+
+  const checkTextFields = (event: any) => {
+    if (event.target.value.length < 2) {
+      setValidationMessages({
+        ...validationMessages,
+        [event.target.name]: "Tekst musi zawierac minimum 2 znaki.",
+      });
+    } else {
+      setValidationMessages({
+        ...validationMessages,
+        [event.target.name]: "",
+      });
+    }
+  };
+
+  const checkNumberFields = (event: any) => {
+    if (event.target.value < 1) {
+      setValidationMessages({
+        ...validationMessages,
+        [event.target.name]: "Wartosc musi byc wieksza od 0.",
+      });
+    } else {
+      setValidationMessages({
+        ...validationMessages,
+        [event.target.name]: "",
+      });
+    }
+  };
+
+  const onRegister = () => {
+    if (!validateFields()) {
+      userService.register(userCredentials).then((response) => {
+        store.dispatch(
+          showMessage({
+            message: "Registration completed successfully",
+            type: "success",
+          })
+        );
+        setTimeout(() => {
+          window.location.pathname = "/login";
+        }, 3000);
+      });
+    } else {
+      store.dispatch(
+        showMessage({ message: "Invalid credentials", type: "warning" })
+      );
+    }
+  };
 
   const onCredentialChange = (event: any) => {
+    if (event.target.name === "age") {
+      checkNumberFields(event);
+    } else {
+      checkTextFields(event);
+    }
+
     setUserCredentials({
       ...userCredentials,
       [event.target.name]: event.target.value,
@@ -56,6 +136,7 @@ const RegisterPage = () => {
             name="username"
             placeholder="Enter username"
             value={userCredentials.username}
+            helperText={validationMessages.username}
             onChange={(event) => onCredentialChange(event)}
           />
           <TextField
@@ -65,6 +146,7 @@ const RegisterPage = () => {
             name="password"
             placeholder="Enter password"
             value={userCredentials.password}
+            helperText={validationMessages.password}
             onChange={(event) => onCredentialChange(event)}
             type="password"
           />
@@ -75,6 +157,7 @@ const RegisterPage = () => {
             name="email"
             placeholder="Enter email"
             value={userCredentials.email}
+            helperText={validationMessages.email}
             onChange={(event) => onCredentialChange(event)}
           />
           <TextField
@@ -84,6 +167,7 @@ const RegisterPage = () => {
             name="name"
             placeholder="Enter name"
             value={userCredentials.name}
+            helperText={validationMessages.name}
             onChange={(event) => onCredentialChange(event)}
           />
           <TextField
@@ -93,6 +177,7 @@ const RegisterPage = () => {
             name="surname"
             placeholder="Enter surname"
             value={userCredentials.surname}
+            helperText={validationMessages.surname}
             onChange={(event) => onCredentialChange(event)}
           />
           <TextField
@@ -102,6 +187,7 @@ const RegisterPage = () => {
             name="age"
             placeholder="Enter age"
             value={handleNumber(userCredentials.age)}
+            helperText={validationMessages.age}
             onChange={(event) => onCredentialChange(event)}
           />
           <TextField
@@ -111,14 +197,22 @@ const RegisterPage = () => {
             name="city"
             placeholder="Enter city"
             value={userCredentials.city}
+            helperText={validationMessages.city}
             onChange={(event) => onCredentialChange(event)}
           />
-          <Button type="submit" fullWidth className="sign-button">
+          <Button
+            type="submit"
+            fullWidth
+            className="sign-button"
+            onClick={onRegister}
+          >
             Sign up
           </Button>
           <Typography className="signin">
             You already have account?
-            <Link href="/login">Sign in</Link>
+            <Link to="/login" className="link-color">
+              Sign in
+            </Link>
           </Typography>
         </Grid>
       </Paper>
