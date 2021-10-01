@@ -82,11 +82,7 @@ const Header = () => {
             onClose={handleClose}
           >
             <Link to="/register">
-              <MenuItem
-                className="menu-item"
-                href="/register"
-                onClick={handleClose}
-              >
+              <MenuItem className="menu-item" onClick={handleClose}>
                 Register
               </MenuItem>
             </Link>

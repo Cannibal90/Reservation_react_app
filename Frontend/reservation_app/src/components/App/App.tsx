@@ -2,6 +2,7 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import MainContainer from "../MainContainer/MainContainer";
 import { BrowserRouter as Router } from "react-router-dom";
+import MessageSnackbar from "../MessageSnackbar/MessageSnackbar";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
         <Header />
         <MainContainer />
         <Footer />
+        <MessageSnackbar />
       </Router>
     </div>
   );

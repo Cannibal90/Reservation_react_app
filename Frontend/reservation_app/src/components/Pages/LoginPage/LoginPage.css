@@ -1,8 +1,17 @@
 .signin-paper {
   padding: 20px;
-  height: 50vh;
+  height: 55vh;
   width: 400px;
   margin: 20px auto;
+}
+
+@media (min-width: 1920px) {
+  .signin-paper {
+    padding: 20px;
+    height: 35vh;
+    width: 400px;
+    margin: 20px auto;
+  }
 }
 
 .avatar-color {
@@ -18,12 +27,6 @@
   background-color: #987ef7 !important;
 }
 
-.signup {
-  margin-top: 18% !important;
-}
-
-@media (min-width: 1920px) {
-  .signup {
-    margin-top: 46% !important;
-  }
+.link-color {
+  color: blue;
 }
