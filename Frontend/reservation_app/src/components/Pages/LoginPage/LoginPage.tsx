@@ -57,7 +57,11 @@ const LoginPage = () => {
 
   const onLogin = () => {
     if (!validateFields()) {
-      userService.loginUser(userCredentials);
+      userService.loginUser(userCredentials).then((response) => {
+        localStorage.setItem("isLogged", JSON.stringify(true));
+        localStorage.setItem("currentUser", JSON.stringify(response));
+        window.location.pathname = "/";
+      });
     } else {
       store.dispatch(
         showMessage({ message: "Invalid credentials", type: "warning" })

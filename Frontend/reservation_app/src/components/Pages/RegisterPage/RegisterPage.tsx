@@ -79,7 +79,17 @@ const RegisterPage = () => {
 
   const onRegister = () => {
     if (!validateFields()) {
-      userService.register(userCredentials);
+      userService.register(userCredentials).then((response) => {
+        store.dispatch(
+          showMessage({
+            message: "Registration completed successfully",
+            type: "success",
+          })
+        );
+        setTimeout(() => {
+          window.location.pathname = "/login";
+        }, 3000);
+      });
     } else {
       store.dispatch(
         showMessage({ message: "Invalid credentials", type: "warning" })
