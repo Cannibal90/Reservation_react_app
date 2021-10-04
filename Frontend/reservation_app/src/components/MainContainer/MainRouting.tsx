@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import LaboratoryRoomMap from "../Pages/Laboratory/LaboratoryRoomMap";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import RegisterPage from "../Pages/RegisterPage/RegisterPage";
 import StartPage from "../Pages/Startpage/Startpage";
@@ -15,6 +16,9 @@ const MainRouting = () => {
       </Route>
       <Route path="/register">
         <RegisterPage />
+      </Route>
+      <Route path="/classroom">
+        <LaboratoryRoomMap />
       </Route>
       <Redirect from="/*" to="/startpage" />
     </Switch>
