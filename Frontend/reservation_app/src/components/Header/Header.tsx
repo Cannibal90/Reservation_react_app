@@ -70,7 +70,9 @@ const Header = () => {
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              Moje rezerwacje
+              <Link className="link" to="/reservations">
+                Moje rezerwacje
+              </Link>
             </Button>
             <Button
               size="large"
@@ -78,7 +80,9 @@ const Header = () => {
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              Zarezerwuj
+              <Link className="link" to="/classroom">
+                Zarezerwuj
+              </Link>
             </Button>
             <Button
               size="large"
@@ -86,7 +90,9 @@ const Header = () => {
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              Zarzadzanie
+              <Link className="link" to="/management">
+                Zarzadzanie
+              </Link>
             </Button>{" "}
           </Container>
 
