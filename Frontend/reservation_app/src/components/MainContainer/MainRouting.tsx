@@ -4,6 +4,7 @@ import LaboratoryRoomMap from "../Pages/Laboratory/LaboratoryRoomMap";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import RegisterPage from "../Pages/RegisterPage/RegisterPage";
 import StartPage from "../Pages/Startpage/Startpage";
+import DeskMap from "../Pages/DeskMap/DeskMap";
 
 const MainRouting = () => {
   return (
@@ -16,6 +17,9 @@ const MainRouting = () => {
       </Route>
       <Route path="/register">
         <RegisterPage />
+      </Route>
+      <Route path="/classroom/:id">
+        <DeskMap />
       </Route>
       <Route path="/classroom">
         <LaboratoryRoomMap />
