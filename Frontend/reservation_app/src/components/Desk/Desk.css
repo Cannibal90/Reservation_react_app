@@ -1,0 +1,25 @@
+.desk {
+  padding: 20px;
+  height: 5vh;
+  width: 100px;
+  margin: 20px auto;
+  background-color: rgb(240, 200, 149) !important;
+}
+
+.station {
+  margin-top: 3px;
+  margin-left: 6px;
+  margin-right: 10px;
+}
+
+.station,
+svg {
+  width: 34px !important;
+  height: 34px !important;
+  cursor: pointer;
+}
+
+.drawer-container {
+  min-width: 300px !important;
+  width: 300px !important;
+}
