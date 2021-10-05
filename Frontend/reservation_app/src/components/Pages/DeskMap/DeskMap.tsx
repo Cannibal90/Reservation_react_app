@@ -1,37 +1,39 @@
-import { Grid, Table } from "@mui/material";
-// import Classroom from "./Classroom";
-// <Paper className="classroom" variant="outlined" square />
+import { Grid, Paper, Table } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { DeskResponse } from "../../../models/DeskInterfaces";
+import { LaboratoryService } from "../../../services/laboratory/LaboratoryService";
+import "./DeskMap.css";
+import Desk from "../../Desk/Desk";
 
-const ClassroomMap = () => {
+const DeskMap = () => {
+  const params = useParams() as any;
+  const [desks, setDesks] = useState<DeskResponse[]>();
+  const laboratoryService = new LaboratoryService();
+
+  const fetchAllDesks = () => {
+    laboratoryService.getAllDesksForRoom(params.id).then((result) => {
+      setDesks(result);
+    });
+  };
+
+  useEffect(() => {
+    fetchAllDesks();
+  }, []);
+
   return (
     <>
-      <Grid
-        style={{ width: "1425px" }}
-        container
-        spacing={0}
-        justifyContent="space-between"
-      >
-        {/* <Classroom />
-        <Classroom />
-        <Classroom />
-        <Classroom />
-        <Classroom />
-        <Classroom />
-        <Classroom />
-        <Classroom /> */}
-      </Grid>
-      <Grid container spacing={1}>
-        {/* <Classroom />
-        <Classroom />
-        <Classroom />
-        <Classroom />
-        <Classroom />
-        <Classroom /> */}
-      </Grid>
-
-      <Table></Table>
+      <Paper className="mapContainer">
+        <Grid container spacing={0} justifyContent="left">
+          {desks &&
+            desks.map((desk) => {
+              return <Desk desk={desk} />;
+            })}
+        </Grid>
+        <Grid container spacing={0} style={{ marginTop: "300px" }}></Grid>
+      </Paper>
     </>
   );
 };
 
-export default ClassroomMap;
+export default DeskMap;
