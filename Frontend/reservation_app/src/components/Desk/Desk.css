@@ -1,0 +1,36 @@
+.desk {
+  padding: 20px;
+  height: 5vh;
+  width: 120px;
+  margin: 20px auto;
+  background-color: rgb(240, 200, 149) !important;
+}
+
+.station {
+  margin-top: 0;
+  margin-left: 12px;
+  margin-right: 10px;
+  margin-bottom: -6px;
+}
+
+.station,
+svg {
+  width: 34px !important;
+  height: 34px !important;
+  cursor: pointer;
+}
+
+.drawer-container {
+  min-width: 300px !important;
+  width: 300px !important;
+}
+
+.icon-container {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+}
+.icon-caption {
+  display: block;
+  margin: 0;
+}

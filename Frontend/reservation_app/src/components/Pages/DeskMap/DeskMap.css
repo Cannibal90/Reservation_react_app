@@ -1,0 +1,10 @@
+.mapContainer {
+  margin: 40px auto;
+  min-height: 600px !important;
+  width: 90% !important;
+}
+.mapTitle {
+  text-align: center;
+  padding: 20px 0 10px 0 !important;
+  border-bottom: 1px solid black;
+}
