@@ -1,4 +1,4 @@
-import { Grid, Paper, Table } from "@mui/material";
+import { Grid, Paper, Table, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { DeskResponse } from "../../../models/DeskInterfaces";
@@ -24,6 +24,9 @@ const DeskMap = () => {
   return (
     <>
       <Paper className="mapContainer">
+        <h2 className="mapTitle">
+          Choose Computer Station to make reservation
+        </h2>
         <Grid container spacing={0} justifyContent="left">
           {desks &&
             desks.map((desk) => {

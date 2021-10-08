@@ -4,6 +4,7 @@ import "./Desk.css";
 import { useEffect, useState } from "react";
 import { ComputerStationResponse } from "../../models/StationInterfaces";
 import { LaboratoryService } from "../../services/laboratory/LaboratoryService";
+import ComputerStation from "../ComputerStation/ComputerStation";
 
 const Desk = (props: { desk: any }) => {
   const [stations, setStations] = useState<ComputerStationResponse[]>();
@@ -44,15 +45,20 @@ const Desk = (props: { desk: any }) => {
         {stations &&
           stations.map((station) => {
             return (
-              <ComputerIcon
-                className="station"
-                onClick={() => openDrawer(station)}
-              />
+              <div className="icon-container">
+                <ComputerIcon
+                  className="station"
+                  onClick={() => openDrawer(station)}
+                />
+                <h4 className="icon-caption">ID: {station.id}</h4>
+              </div>
             );
           })}
       </Paper>
       <Drawer anchor="right" open={open} onClose={closeDrawer}>
-        <Paper className="drawer-container">{selectedStation?.id}</Paper>
+        <Paper className="drawer-container">
+          <ComputerStation station={selectedStation} />
+        </Paper>
       </Drawer>
     </>
   );
