@@ -116,7 +116,7 @@ const ComputerStation = (props: { station: any }) => {
           </ListItem>
         </List>
 
-        <Link to={"/station/" + station.id} className="link">
+        <Link to={"/reserve/station/" + station.id} className="link">
           <Button className="button-color" variant="contained">
             Reserve
           </Button>

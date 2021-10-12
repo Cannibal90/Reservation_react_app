@@ -1,0 +1,28 @@
+.reservationContainer {
+  margin: 40px auto;
+  min-height: 600px !important;
+  width: 90% !important;
+}
+.drawer-container {
+  min-width: 300px !important;
+  width: 300px !important;
+}
+
+.pop-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: white;
+  border: 2px solid #000;
+  box-shadow: 24px;
+  padding: 4px;
+}
+
+.AppointmentsContainer-container-105 {
+  background-color: #7f5ef5 !important;
+}
+.makeStyles-lens-226 {
+  fill: #7f5ef5 !important;
+}
