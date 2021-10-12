@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ViewState } from "@devexpress/dx-react-scheduler";
 import {
   Scheduler,
@@ -14,13 +14,22 @@ import {
 import { Modal, Paper } from "@mui/material";
 import AppointmentFormLayer from "../../AppointmentFormLayer/AppointmentFormLayer";
 import "./ReservationPage.css";
+import { ReservationService } from "../../../services/reservation/reservationService";
+import { useParams } from "react-router";
+import { SchedulerData } from "../../../models/ReservationInterfaces";
 
 const ReservationPage = () => {
+  const params = useParams() as any;
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [reservationStartDate, setReservationStartDate] = useState<Date>();
   const [reservationEndDate, setReservationEndDate] = useState<Date>();
   const [reservationId, setReservationId] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [schedulerData, setSchedulerData] = useState<SchedulerData[]>();
+
+  const reservationService = new ReservationService();
+
   const closeDrawer = (event: any) => {
     if (
       event.type === "keydown" &&
@@ -34,25 +43,36 @@ const ReservationPage = () => {
     setOpen(true);
   };
 
-  const schedulerData = [
-    {
-      id: 1,
-      startDate: "2021-10-10T09:45",
-      endDate: "2021-10-10T11:00",
-    },
-    {
-      id: 2,
-      startDate: "2021-10-10T12:00",
-      endDate: "2021-10-10T13:30",
-    },
-  ];
+  const getAllReservationsForDesk = () => {
+    reservationService.getReservationForStation(params.id).then((response) => {
+      let newSchedulerData = response?.map((res) => {
+        return {
+          id: res.id,
+          startDate: res.durration.beginning,
+          endDate: res.durration.end,
+          stationId: res.stationId,
+        } as SchedulerData;
+      });
+      setSchedulerData(newSchedulerData);
+    });
+  };
+
+  useEffect(() => {
+    getAllReservationsForDesk();
+  }, [loading]);
 
   const onIdChange = (value: any) => {
     setReservationId(value);
   };
 
+  const onLoadingChange = () => {
+    setLoading(!loading);
+  };
+
   const onReservationDelete = (value: any) => {
-    //serwis i usuwanie
+    reservationService.deleteReservation(value).then(() => {
+      onLoadingChange();
+    });
   };
 
   const TimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
@@ -61,6 +81,7 @@ const ReservationPage = () => {
         onClick={() => {
           setReservationStartDate(restProps.startDate);
           setReservationEndDate(restProps.endDate);
+          setReservationId(0);
           openDrawer();
         }}
         {...restProps}
@@ -71,6 +92,7 @@ const ReservationPage = () => {
   const toolTip = ({
     onOpenButtonClick,
     onDeleteButtonClick,
+    onHide,
     ...restProps
   }: any) => {
     return (
@@ -83,6 +105,7 @@ const ReservationPage = () => {
         }}
         onDeleteButtonClick={() => {
           onReservationDelete(restProps.appointmentData.id);
+          onHide();
         }}
         {...restProps}
       />
@@ -130,8 +153,11 @@ const ReservationPage = () => {
             <AppointmentFormLayer
               startDate={reservationStartDate}
               endDate={reservationEndDate}
-              id={reservationId}
+              reservationId={reservationId}
+              stationId={params.id}
               onChange={onIdChange}
+              closeModal={setOpen}
+              loading={onLoadingChange}
             />
           </Paper>
         </Modal>
