@@ -70,7 +70,7 @@ const Header = () => {
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              <Link className="link" to="/reservations">
+              <Link className="link" to="/account/reservations">
                 Moje rezerwacje
               </Link>
             </Button>

@@ -3,6 +3,12 @@ body {
   overflow: visible !important;
 }
 
+.menu {
+  width: 300px !important;
+  float: left !important;
+  display: flex !important;
+}
+
 .menu,
 a {
   color: black;
