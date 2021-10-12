@@ -13,10 +13,10 @@ const Footer = () => {
           FAQ
         </Typography>
         <Typography className="typography" variant="h6" component="div">
-          Kontakt
+          Contact
         </Typography>
         <Typography className="typography" variant="h6" component="div">
-          Polityka prywatnosci
+          Privacy Policy
         </Typography>
       </Container>
 

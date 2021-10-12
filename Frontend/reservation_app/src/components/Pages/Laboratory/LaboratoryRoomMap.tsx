@@ -60,10 +60,18 @@ const LaboratoryRoomMap = () => {
               <TableCell className="header border">
                 Floor
                 <Select value={floor} onChange={(event) => handleChange(event)}>
-                  <MenuItem value={-1}>All</MenuItem>
-                  <MenuItem value={0}>Ground</MenuItem>
-                  <MenuItem value={1}>First</MenuItem>
-                  <MenuItem value={2}>Second</MenuItem>
+                  <MenuItem className="floorSelect" value={-1}>
+                    All
+                  </MenuItem>
+                  <MenuItem className="floorSelect" value={0}>
+                    Ground
+                  </MenuItem>
+                  <MenuItem className="floorSelect" value={1}>
+                    First
+                  </MenuItem>
+                  <MenuItem className="floorSelect" value={2}>
+                    Second
+                  </MenuItem>
                 </Select>
               </TableCell>
               <TableCell className="header border">Room supervisor</TableCell>

@@ -32,6 +32,10 @@ menu {
   margin-left: 0 !important;
 }
 
+.icon-container {
+  color: white !important;
+}
+
 .icon-container svg {
   min-width: 36px !important;
   min-height: 36px !important;
