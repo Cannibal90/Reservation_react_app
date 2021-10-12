@@ -37,7 +37,7 @@ const Desk = (props: { desk: any }) => {
 
   useEffect(() => {
     fetchAllStations();
-  }, []);
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

@@ -43,6 +43,20 @@ const ReservationPage = () => {
     setOpen(true);
   };
 
+  const onSelectedDateChange = (value: any) => {
+    setSelectedDate(value);
+  };
+
+  const onLoadingChange = () => {
+    setLoading(!loading);
+  };
+
+  const onReservationDelete = (value: any) => {
+    reservationService.deleteReservation(value).then(() => {
+      onLoadingChange();
+    });
+  };
+
   const getAllReservationsForDesk = () => {
     reservationService.getReservationForStation(params.id).then((response) => {
       let newSchedulerData = response?.map((res) => {
@@ -59,21 +73,7 @@ const ReservationPage = () => {
 
   useEffect(() => {
     getAllReservationsForDesk();
-  }, [loading]);
-
-  const onIdChange = (value: any) => {
-    setReservationId(value);
-  };
-
-  const onLoadingChange = () => {
-    setLoading(!loading);
-  };
-
-  const onReservationDelete = (value: any) => {
-    reservationService.deleteReservation(value).then(() => {
-      onLoadingChange();
-    });
-  };
+  }, [loading]); //eslint-disable-line react-hooks/exhaustive-deps
 
   const TimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
     return (
@@ -110,10 +110,6 @@ const ReservationPage = () => {
         {...restProps}
       />
     );
-  };
-
-  const onSelectedDateChange = (value: any) => {
-    setSelectedDate(value);
   };
 
   return (
@@ -155,7 +151,6 @@ const ReservationPage = () => {
               endDate={reservationEndDate}
               reservationId={reservationId}
               stationId={params.id}
-              onChange={onIdChange}
               closeModal={setOpen}
               loading={onLoadingChange}
             />

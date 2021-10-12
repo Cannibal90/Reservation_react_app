@@ -11,7 +11,6 @@ const AppointmentFormLayer = (props: {
   endDate: any;
   reservationId: any;
   stationId: any;
-  onChange: any;
   closeModal: any;
   loading: any;
 }) => {
@@ -42,7 +41,7 @@ const AppointmentFormLayer = (props: {
     } else {
       reservationService
         .updateReservation(newRequest, props.reservationId)
-        .then((response) => {
+        .then(() => {
           props.closeModal(false);
           props.loading();
         });

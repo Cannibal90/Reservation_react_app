@@ -24,7 +24,7 @@ const ComputerStation = (props: { station: any }) => {
   const station = props.station;
 
   const booleanHandler = (value: boolean) => {
-    if (value == true) return "Yes";
+    if (value === true) return "Yes";
     return "No";
   };
 

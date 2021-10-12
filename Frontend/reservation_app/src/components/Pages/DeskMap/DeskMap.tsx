@@ -1,4 +1,4 @@
-import { Grid, Paper, Table, TextField } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { DeskResponse } from "../../../models/DeskInterfaces";
@@ -19,7 +19,7 @@ const DeskMap = () => {
 
   useEffect(() => {
     fetchAllDesks();
-  }, []);
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

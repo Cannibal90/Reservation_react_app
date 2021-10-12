@@ -32,7 +32,7 @@ const LaboratoryRoomMap = () => {
 
   useEffect(() => {
     fetchAllRooms();
-  }, []);
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   const handleChange = (event: any) => {
     if (event.target.value === -1) {
@@ -50,7 +50,7 @@ const LaboratoryRoomMap = () => {
         style={{ width: "80%", margin: "20px auto" }}
       >
         <Typography variant="h3" component="div" className="title">
-          Wybierz jedna z sal!
+          Choose one of Laboratory rooms!
         </Typography>
 
         <Table>
