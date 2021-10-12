@@ -70,8 +70,8 @@ const Header = () => {
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              <Link className="link" to="/reservations">
-                Moje rezerwacje
+              <Link className="link" to="/account/reservations">
+                My reservations
               </Link>
             </Button>
             <Button
@@ -81,7 +81,7 @@ const Header = () => {
               sx={{ flexGrow: 1 }}
             >
               <Link className="link" to="/classroom">
-                Zarezerwuj
+                Reserve
               </Link>
             </Button>
             <Button
@@ -91,7 +91,7 @@ const Header = () => {
               sx={{ flexGrow: 1 }}
             >
               <Link className="link" to="/management">
-                Zarzadzanie
+                Management
               </Link>
             </Button>{" "}
           </Container>
@@ -105,7 +105,7 @@ const Header = () => {
             onClick={handleMenu}
             color="inherit"
           >
-            <AccountCircle />
+            <AccountCircle className="icon-circle" />
           </IconButton>
           <Menu
             className="menu"
@@ -125,9 +125,9 @@ const Header = () => {
           >
             {menuItems
               .filter((i) => i.logged === isLogged)
-              .map((item) => {
+              .map((item, index) => {
                 return (
-                  <Link to={item.link}>
+                  <Link key={index} to={item.link}>
                     <MenuItem className="menu-item" onClick={item.function}>
                       {item.name}
                     </MenuItem>

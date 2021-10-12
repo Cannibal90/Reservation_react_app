@@ -8,7 +8,7 @@ const StartPage = () => {
   return (
     <>
       <div className="title-container">
-        <h2 className="main-title">Zarezerwuj swoje stanowisko juz teraz! </h2>
+        <h2 className="main-title">Reserve your computer station today!</h2>
       </div>
       <div className="button-container">
         <Link to={isLogged ? "/classroom" : "/login"}>
@@ -18,7 +18,7 @@ const StartPage = () => {
             size="large"
             component="div"
           >
-            Wybierz stanowisko
+            Choose computer station
           </Button>
         </Link>
       </div>

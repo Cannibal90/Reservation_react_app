@@ -32,7 +32,7 @@ const LaboratoryRoomMap = () => {
 
   useEffect(() => {
     fetchAllRooms();
-  }, []);
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   const handleChange = (event: any) => {
     if (event.target.value === -1) {
@@ -50,7 +50,7 @@ const LaboratoryRoomMap = () => {
         style={{ width: "80%", margin: "20px auto" }}
       >
         <Typography variant="h3" component="div" className="title">
-          Wybierz jedna z sal!
+          Choose one of Laboratory rooms!
         </Typography>
 
         <Table>
@@ -60,10 +60,18 @@ const LaboratoryRoomMap = () => {
               <TableCell className="header border">
                 Floor
                 <Select value={floor} onChange={(event) => handleChange(event)}>
-                  <MenuItem value={-1}>All</MenuItem>
-                  <MenuItem value={0}>Ground</MenuItem>
-                  <MenuItem value={1}>First</MenuItem>
-                  <MenuItem value={2}>Second</MenuItem>
+                  <MenuItem className="floorSelect" value={-1}>
+                    All
+                  </MenuItem>
+                  <MenuItem className="floorSelect" value={0}>
+                    Ground
+                  </MenuItem>
+                  <MenuItem className="floorSelect" value={1}>
+                    First
+                  </MenuItem>
+                  <MenuItem className="floorSelect" value={2}>
+                    Second
+                  </MenuItem>
                 </Select>
               </TableCell>
               <TableCell className="header border">Room supervisor</TableCell>

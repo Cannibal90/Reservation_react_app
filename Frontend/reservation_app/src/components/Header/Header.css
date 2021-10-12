@@ -3,6 +3,12 @@ body {
   overflow: visible !important;
 }
 
+.menu {
+  width: 300px !important;
+  float: left !important;
+  display: flex !important;
+}
+
 .menu,
 a {
   color: black;
@@ -24,6 +30,10 @@ menu {
 .toolbar-container {
   padding: 0 !important;
   margin-left: 0 !important;
+}
+
+.icon-container {
+  color: white !important;
 }
 
 .icon-container svg {
