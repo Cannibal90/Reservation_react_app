@@ -106,4 +106,28 @@ export class ReservationService extends Service {
       });
     return reservation;
   }
+
+  async getReservationForUser(
+    id: number
+  ): Promise<ReservationResponse[] | undefined> {
+    let reservations = await fetch(this.host + "/reserve/user/" + id, {
+      method: "GET",
+      headers: {
+        Authorization: this.token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) return response.json();
+        response.text().then((text) => this.handleError(text));
+        return Promise.reject();
+      })
+      .catch((error) => {
+        store.dispatch(
+          showMessage({ message: "Connection failed", type: "error" })
+        );
+        return Promise.reject();
+      });
+    return reservations;
+  }
 }

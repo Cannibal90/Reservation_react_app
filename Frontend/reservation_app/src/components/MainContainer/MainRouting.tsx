@@ -26,7 +26,7 @@ const MainRouting = () => {
       <Route path="/classroom">
         <LaboratoryRoomMap />
       </Route>
-      <Route path="/reserve/station/:id">
+      <Route path="/reserve/station/:id/:startDate?/:endDate?">
         <ReservationPage />
       </Route>
       <Route path="/account/reservations">
