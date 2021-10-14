@@ -5,6 +5,7 @@ import "./AppointmentFormLayer.css";
 import { useState } from "react";
 import { ReservationService } from "../../services/reservation/reservationService";
 import { ReservationRequest } from "../../models/ReservationInterfaces";
+import { useParams } from "react-router";
 
 const AppointmentFormLayer = (props: {
   startDate: any;
@@ -13,7 +14,9 @@ const AppointmentFormLayer = (props: {
   stationId: any;
   closeModal: any;
   loading: any;
+  reloadParams: any;
 }) => {
+  const params = useParams() as any;
   const [startDate, setStartDate] = useState(props.startDate);
   const [endDate, setEndDate] = useState(props.endDate);
   const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
@@ -43,6 +46,15 @@ const AppointmentFormLayer = (props: {
         .updateReservation(newRequest, props.reservationId)
         .then(() => {
           props.closeModal(false);
+          if (params.startDate && params.endDate) {
+            window.history.replaceState(
+              null,
+              "",
+              "/reserve/station/" + parseInt(props.stationId)
+            );
+            props.reloadParams();
+          }
+
           props.loading();
         });
     }

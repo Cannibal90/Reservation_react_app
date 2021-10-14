@@ -20,12 +20,16 @@ import { SchedulerData } from "../../../models/ReservationInterfaces";
 
 const ReservationPage = () => {
   const params = useParams() as any;
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
-  const [reservationStartDate, setReservationStartDate] = useState<Date>();
-  const [reservationEndDate, setReservationEndDate] = useState<Date>();
+  const startDate = params.startDate ? new Date(params.startDate) : new Date();
+  const endDate = params.endDate ? new Date(params.endDate) : new Date();
+  const [selectedDate, setSelectedDate] = useState<Date>(startDate);
+  const [reservationStartDate, setReservationStartDate] =
+    useState<Date>(startDate);
+  const [reservationEndDate, setReservationEndDate] = useState<Date>(endDate);
   const [reservationId, setReservationId] = useState<number>(0);
   const [open, setOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const [reloadParams, setReloadParams] = useState<boolean>(true);
   const [schedulerData, setSchedulerData] = useState<SchedulerData[]>();
 
   const reservationService = new ReservationService();
@@ -74,6 +78,22 @@ const ReservationPage = () => {
   useEffect(() => {
     getAllReservationsForDesk();
   }, [loading]); //eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (params.startDate && params.endDate && reloadParams) {
+      let reservation = schedulerData?.filter(
+        (data) =>
+          new Date(data.startDate).getTime() ===
+            reservationStartDate.getTime() &&
+          new Date(data.endDate).getTime() === reservationEndDate.getTime()
+      );
+
+      if (reservation && reservation.length) {
+        setReservationId(reservation[0].id);
+        openDrawer();
+      }
+    }
+  }, [schedulerData]);
 
   const TimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
     return (
@@ -153,6 +173,9 @@ const ReservationPage = () => {
               stationId={params.id}
               closeModal={setOpen}
               loading={onLoadingChange}
+              reloadParams={() => {
+                setReloadParams(false);
+              }}
             />
           </Paper>
         </Modal>
