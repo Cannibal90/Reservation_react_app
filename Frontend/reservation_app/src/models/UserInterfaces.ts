@@ -21,6 +21,11 @@ export interface UserRegister {
   city: string;
 }
 
+export interface UserPassword {
+  oldPassword: string;
+  newPassword: string;
+}
+
 export interface UserResponse {
   id?: number;
   username: string;
