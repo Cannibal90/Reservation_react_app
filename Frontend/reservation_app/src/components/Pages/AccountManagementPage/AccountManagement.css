@@ -1,0 +1,17 @@
+.management-paper {
+  padding: 10px;
+  height: 80vh;
+  width: 80%;
+  margin: 10px auto;
+}
+.button-management,
+.button-password {
+  margin-top: 10px !important;
+  width: 20% !important;
+  color: #fff !important;
+  background-color: #7f5ef5 !important;
+}
+.button-password {
+  margin-bottom: 20px !important;
+  margin-top: 0 !important;
+}

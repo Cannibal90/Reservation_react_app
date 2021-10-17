@@ -7,6 +7,7 @@ import StartPage from "../Pages/Startpage/Startpage";
 import DeskMap from "../Pages/DeskMap/DeskMap";
 import ReservationPage from "../Pages/ReservationPage/ReservationPage";
 import UserReservationsPage from "../Pages/UserReservationsPage/UserReservationsPage";
+import AccountManagement from "../Pages/AccountManagementPage/AccountManagement";
 
 const MainRouting = () => {
   return (
@@ -31,6 +32,9 @@ const MainRouting = () => {
       </Route>
       <Route path="/account/reservations">
         <UserReservationsPage />
+      </Route>
+      <Route path="/account/management">
+        <AccountManagement />
       </Route>
       <Redirect from="/*" to="/startpage" />
     </Switch>

@@ -45,7 +45,7 @@ const Header = () => {
     },
     {
       name: "Account",
-      link: "/myaccount",
+      link: "/account/management",
       logged: true,
       function: handleClose,
     },
