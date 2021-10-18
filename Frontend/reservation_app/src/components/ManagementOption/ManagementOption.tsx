@@ -26,7 +26,7 @@ const ManagementOption = (props: { option: any; link: any }) => {
         elevation={24}
         style={{ height: "400px", margin: "0 10px 0 10px" }}
       >
-        <img src={getImg()} className="mask" />
+        <img src={getImg()} className="mask" alt={props.option} />
       </Paper>
 
       <Paper

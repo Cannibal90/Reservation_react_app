@@ -93,7 +93,7 @@ const ReservationPage = () => {
         openDrawer();
       }
     }
-  }, [schedulerData]);
+  }, [schedulerData]); //eslint-disable-line react-hooks/exhaustive-deps
 
   const TimeTableCell = ({ onDoubleClick, ...restProps }: any) => {
     return (
