@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Button, Grid, Paper, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Paper,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { UserRequest, UserResponse } from "../../models/UserInterfaces";
 import "./UserPaper.css";
 import { UserService } from "../../services/user/userService";
@@ -7,6 +17,8 @@ import { store } from "../../store/store";
 import { showMessage } from "../../store/actions/messageAction";
 
 const UserPaper = (props: { userData: any; userId: any; drawer: any }) => {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser") || "{}");
+
   const [userInfo, setUserInfo] = useState<UserRequest>(props.userData);
   const [validationMessages, setValidationMessages] = useState<any>({
     username: "",
@@ -145,22 +157,25 @@ const UserPaper = (props: { userData: any; userId: any; drawer: any }) => {
             <TextField
               variant="standard"
               fullWidth
-              label="Role"
-              name="role"
-              disabled={true}
-              value={userInfo.role === "ROLE_ADMIN" ? "ADMIN" : "USER"}
-              helperText={validationMessages.role}
-              onChange={(event) => onUserInfoChange(event)}
-            />
-            <TextField
-              variant="standard"
-              fullWidth
               label="City"
               name="city"
               value={userInfo.city}
               helperText={validationMessages.city}
               onChange={(event) => onUserInfoChange(event)}
             />
+            <FormControl fullWidth>
+              <InputLabel>Role</InputLabel>
+              <Select
+                disabled={currentUser.role === "ROLE_USER"}
+                value={userInfo.role}
+                label="Role"
+                name="role"
+                onChange={(event) => onUserInfoChange(event)}
+              >
+                <MenuItem value={"ROLE_ADMIN"}>ADMIN</MenuItem>
+                <MenuItem value={"ROLE_USER"}>USER</MenuItem>
+              </Select>
+            </FormControl>
           </Grid>
           <Grid item xs={5}>
             <TextField
@@ -193,7 +208,7 @@ const UserPaper = (props: { userData: any; userId: any; drawer: any }) => {
           </Grid>
         </Grid>
         <Button
-          className="button-password"
+          className="button-save"
           variant="contained"
           onClick={updateUser}
         >

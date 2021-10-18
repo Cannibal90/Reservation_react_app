@@ -4,13 +4,9 @@
   margin: 20px auto;
 }
 .button-management,
-.button-password {
+.button-save {
   margin-top: 10px !important;
   width: 20% !important;
   color: #fff !important;
   background-color: #7f5ef5 !important;
-}
-.button-password {
-  margin-bottom: 20px !important;
-  margin-top: 0 !important;
 }
