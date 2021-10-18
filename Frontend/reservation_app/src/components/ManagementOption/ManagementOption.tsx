@@ -1,6 +1,5 @@
 import { Paper } from "@mui/material";
 import users from "../../images/users.jpg";
-import desk from "../../images/desk.jpg";
 import reservation from "../../images/reservation.jpg";
 import classroom from "../../images/classroom.jpg";
 import { Link } from "react-router-dom";
@@ -25,7 +24,7 @@ const ManagementOption = (props: { option: any; link: any }) => {
         variant="outlined"
         square
         elevation={24}
-        style={{ height: "450px", margin: "0 10px 0 10px" }}
+        style={{ height: "400px", margin: "0 10px 0 10px" }}
       >
         <img src={getImg()} className="mask" />
       </Paper>
