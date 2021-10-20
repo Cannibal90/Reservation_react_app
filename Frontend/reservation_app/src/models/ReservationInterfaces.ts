@@ -15,6 +15,7 @@ export interface ReservationResponse {
   id: number;
   durration: DurrationResponse;
   stationId: number;
+  userId: number;
 }
 
 export interface SchedulerData {

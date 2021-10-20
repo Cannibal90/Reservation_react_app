@@ -89,7 +89,7 @@ export class UserService extends Service {
       },
     })
       .then((response) => {
-        if (response.ok) return response.json();
+        if (response.ok) return;
         response.text().then((text) => this.handleError(text));
         return Promise.reject();
       })
@@ -151,5 +151,27 @@ export class UserService extends Service {
         return Promise.reject();
       });
     return user;
+  }
+
+  async getAllUsers(): Promise<UserResponse[] | undefined> {
+    let users = await fetch(this.host, {
+      method: "GET",
+      headers: {
+        Authorization: this.token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) return response.json();
+        response.text().then((text) => this.handleError(text));
+        return Promise.reject();
+      })
+      .catch((error) => {
+        store.dispatch(
+          showMessage({ message: "Connection failed", type: "error" })
+        );
+        return Promise.reject();
+      });
+    return users;
   }
 }

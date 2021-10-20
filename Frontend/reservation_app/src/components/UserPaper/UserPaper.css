@@ -1,0 +1,12 @@
+.user-paper {
+  padding: 10px;
+  height: 41vh;
+  margin: 20px auto;
+}
+.button-management,
+.button-save {
+  margin-top: 10px !important;
+  width: 20% !important;
+  color: #fff !important;
+  background-color: #7f5ef5 !important;
+}

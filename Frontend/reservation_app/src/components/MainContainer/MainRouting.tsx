@@ -8,6 +8,9 @@ import DeskMap from "../Pages/DeskMap/DeskMap";
 import ReservationPage from "../Pages/ReservationPage/ReservationPage";
 import UserReservationsPage from "../Pages/UserReservationsPage/UserReservationsPage";
 import AccountManagement from "../Pages/AccountManagementPage/AccountManagement";
+import ManagementPage from "../Pages/ManagementPage/ManagementPage";
+import UserManagementPage from "../Pages/UserManagementPage/UserManagementPage";
+import ReservationManagementPage from "../Pages/ReservationManagementPage/ReservationManagementPage";
 
 const MainRouting = () => {
   return (
@@ -35,6 +38,18 @@ const MainRouting = () => {
       </Route>
       <Route path="/account/management">
         <AccountManagement />
+      </Route>
+      <Route path="/management/users">
+        <UserManagementPage />
+      </Route>
+      <Route path="/management/reservations">
+        <ReservationManagementPage />
+      </Route>
+      <Route path="/management/laboratory">
+        <ManagementPage />
+      </Route>
+      <Route path="/management">
+        <ManagementPage />
       </Route>
       <Redirect from="/*" to="/startpage" />
     </Switch>

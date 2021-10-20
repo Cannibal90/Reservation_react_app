@@ -1,0 +1,25 @@
+.managementContainer {
+  margin: 40px auto;
+  min-height: 600px !important;
+  width: 90% !important;
+}
+.managementTitle {
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+.gridContainer {
+  text-align: center;
+  flex: 1;
+  justify-content: space-evenly;
+}
+
+.mask {
+  filter: grayscale(100%) !important;
+  width: 100%;
+  height: auto;
+}
+
+.mask:hover {
+  filter: grayscale(0%) !important;
+}

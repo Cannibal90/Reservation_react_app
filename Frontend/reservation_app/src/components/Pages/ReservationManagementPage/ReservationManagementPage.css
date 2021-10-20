@@ -1,0 +1,14 @@
+.header {
+  font-weight: 600 !important;
+}
+.border {
+  border-bottom: 1px solid black !important;
+}
+.title {
+  text-align: center;
+  margin: 20px auto !important;
+}
+
+.row:hover {
+  background-color: rgb(0 0 0 / 24%) !important;
+}
