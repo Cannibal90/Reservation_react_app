@@ -12,6 +12,7 @@ const AppointmentFormLayer = (props: {
   endDate: any;
   reservationId: any;
   stationId: any;
+  userId: any;
   closeModal: any;
   loading: any;
   reloadParams: any;
@@ -19,7 +20,6 @@ const AppointmentFormLayer = (props: {
   const params = useParams() as any;
   const [startDate, setStartDate] = useState(props.startDate);
   const [endDate, setEndDate] = useState(props.endDate);
-  const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
 
   const reservationService = new ReservationService();
 
@@ -30,7 +30,7 @@ const AppointmentFormLayer = (props: {
     newEnd.setHours(newEnd.getHours() + 2);
 
     let newRequest = {
-      userId: user.id,
+      userId: props.userId,
       stationId: parseInt(props.stationId),
       beginning: newStart,
       end: newEnd,

@@ -31,6 +31,7 @@ const ReservationPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [reloadParams, setReloadParams] = useState<boolean>(true);
   const [schedulerData, setSchedulerData] = useState<SchedulerData[]>();
+  const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
 
   const reservationService = new ReservationService();
 
@@ -171,6 +172,7 @@ const ReservationPage = () => {
               endDate={reservationEndDate}
               reservationId={reservationId}
               stationId={params.id}
+              userId={user.id}
               closeModal={setOpen}
               loading={onLoadingChange}
               reloadParams={() => {

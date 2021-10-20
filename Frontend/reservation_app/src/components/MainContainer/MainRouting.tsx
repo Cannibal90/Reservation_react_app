@@ -10,6 +10,7 @@ import UserReservationsPage from "../Pages/UserReservationsPage/UserReservations
 import AccountManagement from "../Pages/AccountManagementPage/AccountManagement";
 import ManagementPage from "../Pages/ManagementPage/ManagementPage";
 import UserManagementPage from "../Pages/UserManagementPage/UserManagementPage";
+import ReservationManagementPage from "../Pages/ReservationManagementPage/ReservationManagementPage";
 
 const MainRouting = () => {
   return (
@@ -42,7 +43,7 @@ const MainRouting = () => {
         <UserManagementPage />
       </Route>
       <Route path="/management/reservations">
-        <UserManagementPage />
+        <ReservationManagementPage />
       </Route>
       <Route path="/management/laboratory">
         <ManagementPage />
