@@ -11,6 +11,7 @@ import AccountManagement from "../Pages/AccountManagementPage/AccountManagement"
 import ManagementPage from "../Pages/ManagementPage/ManagementPage";
 import UserManagementPage from "../Pages/UserManagementPage/UserManagementPage";
 import ReservationManagementPage from "../Pages/ReservationManagementPage/ReservationManagementPage";
+import LaboratoryManagementPage from "../Pages/LaboratoryManagementPage/LaboratoryManagementPage";
 
 const MainRouting = () => {
   return (
@@ -46,7 +47,7 @@ const MainRouting = () => {
         <ReservationManagementPage />
       </Route>
       <Route path="/management/laboratory">
-        <ManagementPage />
+        <LaboratoryManagementPage />
       </Route>
       <Route path="/management">
         <ManagementPage />

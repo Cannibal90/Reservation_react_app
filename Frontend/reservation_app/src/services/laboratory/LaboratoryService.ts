@@ -1,7 +1,10 @@
 import { Service } from "../Service";
 import { store } from "../../store/store";
 import { showMessage } from "../../store/actions/messageAction";
-import { LaboratoryResponse } from "../../models/LaboratoryInterfaces";
+import {
+  LaboratoryRequest,
+  LaboratoryResponse,
+} from "../../models/LaboratoryInterfaces";
 import { DeskResponse } from "../../models/DeskInterfaces";
 import { ComputerStationResponse } from "../../models/StationInterfaces";
 
@@ -77,5 +80,76 @@ export class LaboratoryService extends Service {
       });
 
     return stations;
+  }
+  async createRoom(
+    roomInfo: LaboratoryRequest
+  ): Promise<LaboratoryResponse | undefined> {
+    let room = await fetch(this.host + "/room", {
+      method: "POST",
+      body: JSON.stringify(roomInfo),
+      headers: {
+        Authorization: this.token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) return response.json();
+        response.text().then((text) => this.handleError(text));
+        return Promise.reject();
+      })
+      .catch((error) => {
+        store.dispatch(
+          showMessage({ message: "Connection failed", type: "error" })
+        );
+        return Promise.reject();
+      });
+    return room;
+  }
+
+  async deleteLaboratoryById(id: number): Promise<{} | undefined> {
+    return await fetch(this.host + "/room/" + id, {
+      method: "DELETE",
+      headers: {
+        Authorization: this.token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) return;
+        response.text().then((text) => this.handleError(text));
+        return Promise.reject();
+      })
+      .catch((error) => {
+        store.dispatch(
+          showMessage({ message: "Connection failed", type: "error" })
+        );
+        return Promise.reject();
+      });
+  }
+
+  async updateRoom(
+    roomDetails: LaboratoryRequest,
+    id: number
+  ): Promise<LaboratoryResponse | undefined> {
+    let room = await fetch(this.host + "/room/" + id, {
+      method: "PUT",
+      body: JSON.stringify(roomDetails),
+      headers: {
+        Authorization: this.token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) return response.json();
+        response.text().then((text) => this.handleError(text));
+        return Promise.reject();
+      })
+      .catch((error) => {
+        store.dispatch(
+          showMessage({ message: "Connection failed", type: "error" })
+        );
+        return Promise.reject();
+      });
+    return room;
   }
 }
