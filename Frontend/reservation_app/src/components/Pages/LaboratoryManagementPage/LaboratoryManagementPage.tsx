@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import LaboratoryAccordition from "../../LaboratoryAccordition/LaboratoryAccordition";
-
+import DeskAccordition from "../../DeskAccordition/DeskAccordition";
 const LaboratoryManagementPage = () => {
   return (
     <>
@@ -42,11 +42,7 @@ const LaboratoryManagementPage = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
+            <DeskAccordition />
           </AccordionDetails>
         </Accordion>
 

@@ -40,7 +40,7 @@ const LaboratoryFormLayer = (props: {
       <Grid container direction="column">
         <TextField
           className="pop-up-title"
-          defaultValue="Reservation details"
+          defaultValue="Laboratory room details"
           InputProps={{
             readOnly: true,
           }}
