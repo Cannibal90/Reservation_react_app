@@ -80,10 +80,10 @@ const LaboratoryAccordition = () => {
     openDrawer();
   };
 
-  const onCreateLaboratory = () => {
+  const onCreateDesk = () => {
     setSelectedId(0);
     setSelectedDeskType("");
-    setSelectedRoom(0);
+    setSelectedRoom(selectedRoom);
     openDrawer();
   };
 
@@ -94,14 +94,14 @@ const LaboratoryAccordition = () => {
 
   useEffect(() => {
     fetchAllRooms();
-  }, []);
+  }, []); //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
       <Button
         className="button-color"
         variant="contained"
-        onClick={onCreateLaboratory}
+        onClick={onCreateDesk}
         disabled={selectedRoom ? false : true}
       >
         + Add desk

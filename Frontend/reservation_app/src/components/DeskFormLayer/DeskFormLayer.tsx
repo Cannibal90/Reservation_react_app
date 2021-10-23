@@ -13,7 +13,6 @@ import "./DeskFormLayer.css";
 import { useState } from "react";
 import { LaboratoryService } from "../../services/laboratory/LaboratoryService";
 import { DeskRequest } from "../../models/DeskInterfaces";
-import { AnyAaaaRecord } from "dns";
 
 const DeskFormLayer = (props: {
   roomId: any;
@@ -22,7 +21,6 @@ const DeskFormLayer = (props: {
   loading: any;
   closeModal: any;
 }) => {
-  const [room, setRoom] = useState(props.roomId);
   const [deskType, setDeskType] = useState(props.deskType);
 
   const laboratoryService = new LaboratoryService();
@@ -34,7 +32,7 @@ const DeskFormLayer = (props: {
   const onDeskChange = () => {
     let newRequest = {
       deskType: deskType,
-      roomId: room,
+      roomId: props.roomId,
     } as DeskRequest;
 
     if (!props.deskId) {
@@ -80,7 +78,7 @@ const DeskFormLayer = (props: {
           variant="contained"
           onClick={onDeskChange}
         >
-          {!props.deskId ? "Create room" : "Change room"}
+          {!props.deskId ? "Create desk" : "Change desk"}
         </Button>
       </Grid>
     </>

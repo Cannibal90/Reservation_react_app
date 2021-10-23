@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import LaboratoryAccordition from "../../LaboratoryAccordition/LaboratoryAccordition";
 import DeskAccordition from "../../DeskAccordition/DeskAccordition";
+import ComputerAccordition from "../../ComputerAccordition/ComputerAccordition";
 const LaboratoryManagementPage = () => {
   return (
     <>
@@ -57,11 +58,7 @@ const LaboratoryManagementPage = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
+            <ComputerAccordition />
           </AccordionDetails>
         </Accordion>
       </Paper>

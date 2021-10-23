@@ -6,7 +6,10 @@ import {
   LaboratoryResponse,
 } from "../../models/LaboratoryInterfaces";
 import { DeskRequest, DeskResponse } from "../../models/DeskInterfaces";
-import { ComputerStationResponse } from "../../models/StationInterfaces";
+import {
+  ComputerStationRequest,
+  ComputerStationResponse,
+} from "../../models/StationInterfaces";
 
 export class LaboratoryService extends Service {
   host = "http://localhost:8989/laboratory";
@@ -223,5 +226,78 @@ export class LaboratoryService extends Service {
         return Promise.reject();
       });
     return desk;
+  }
+
+  // ////////////
+  async createStation(
+    stationInfo: ComputerStationRequest
+  ): Promise<DeskResponse | undefined> {
+    let station = await fetch(this.host + "/computer", {
+      method: "POST",
+      body: JSON.stringify(stationInfo),
+      headers: {
+        Authorization: this.token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) return response.json();
+        response.text().then((text) => this.handleError(text));
+        return Promise.reject();
+      })
+      .catch((error) => {
+        store.dispatch(
+          showMessage({ message: "Connection failed", type: "error" })
+        );
+        return Promise.reject();
+      });
+    return station;
+  }
+
+  async deleteStationById(id: number): Promise<{} | undefined> {
+    return await fetch(this.host + "/computer/" + id, {
+      method: "DELETE",
+      headers: {
+        Authorization: this.token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) return;
+        response.text().then((text) => this.handleError(text));
+        return Promise.reject();
+      })
+      .catch((error) => {
+        store.dispatch(
+          showMessage({ message: "Connection failed", type: "error" })
+        );
+        return Promise.reject();
+      });
+  }
+
+  async updateStation(
+    stationDetails: ComputerStationRequest,
+    id: number
+  ): Promise<DeskResponse | undefined> {
+    let station = await fetch(this.host + "/computer/" + id, {
+      method: "PUT",
+      body: JSON.stringify(stationDetails),
+      headers: {
+        Authorization: this.token,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.ok) return response.json();
+        response.text().then((text) => this.handleError(text));
+        return Promise.reject();
+      })
+      .catch((error) => {
+        store.dispatch(
+          showMessage({ message: "Connection failed", type: "error" })
+        );
+        return Promise.reject();
+      });
+    return station;
   }
 }

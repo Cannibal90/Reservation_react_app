@@ -1,0 +1,14 @@
+.pop-up-title input {
+  text-align: center !important;
+  font-weight: 600;
+}
+
+.button-color {
+  width: 100% !important;
+  color: #fff !important;
+  background-color: #7f5ef5 !important;
+}
+
+.button-color:hover {
+  background-color: #987ef7 !important;
+}

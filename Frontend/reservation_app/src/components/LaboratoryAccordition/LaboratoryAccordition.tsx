@@ -71,7 +71,7 @@ const LaboratoryAccordition = () => {
 
   useEffect(() => {
     fetchAllRooms();
-  }, [loading]);
+  }, [loading]); //eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>
