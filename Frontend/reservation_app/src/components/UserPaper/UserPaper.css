@@ -1,6 +1,6 @@
 .user-paper {
   padding: 10px;
-  height: 41vh;
+  height: 61vh;
   margin: 20px auto;
 }
 .button-management,
@@ -9,4 +9,11 @@
   width: 20% !important;
   color: #fff !important;
   background-color: #7f5ef5 !important;
+}
+@media (min-width: 380px) {
+  .user-paper {
+    padding: 10px;
+    height: 41vh;
+    margin: 20px auto;
+  }
 }

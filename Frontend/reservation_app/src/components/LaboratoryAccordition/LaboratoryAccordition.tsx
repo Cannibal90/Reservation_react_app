@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { LaboratoryResponse } from "../../models/LaboratoryInterfaces";
 import { LaboratoryService } from "../../services/laboratory/LaboratoryService";
 import LaboratoryFormLayer from "../LaboratoryFormLayer/LaboratoryFormLayer";
+import "./LaboratoryAccordition.css";
 
 const LaboratoryAccordition = () => {
   const [rooms, setRooms] = useState<LaboratoryResponse[]>();
@@ -103,10 +104,12 @@ const LaboratoryAccordition = () => {
             {rooms &&
               rooms.map((room) => (
                 <TableRow key={room.id} className="row">
-                  <TableCell>{room.id}</TableCell>
-                  <TableCell>{room.floor}</TableCell>
-                  <TableCell>{room.roomSupervisor}</TableCell>
-                  <TableCell>{room.deskCount}</TableCell>
+                  <TableCell className="cell_item">{room.id}</TableCell>
+                  <TableCell className="cell_item">{room.floor}</TableCell>
+                  <TableCell className="cell_item">
+                    {room.roomSupervisor}
+                  </TableCell>
+                  <TableCell className="cell_item">{room.deskCount}</TableCell>
                   <TableCell align="right">
                     <DeleteIcon onClick={() => onLaboratoryDelete(room.id)} />
                   </TableCell>

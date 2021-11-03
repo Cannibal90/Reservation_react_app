@@ -6,6 +6,11 @@
   max-width: 100% !important;
 }
 
+.footer-title {
+  text-align: center;
+  font-size: 14px !important;
+}
+
 .typography {
   font-weight: 600 !important;
   margin-right: 10px !important;
@@ -21,6 +26,21 @@
 }
 
 .icons {
-  width: 32px !important;
-  height: 32px !important;
+  width: 25px !important;
+  height: 25px !important;
+}
+
+/* sm */
+@media (min-width: 576px) {
+  .footer-title {
+    text-align: left;
+    font-size: 20px !important;
+  }
+}
+/* md */
+@media (min-width: 768px) {
+  .icons {
+    width: 32px !important;
+    height: 32px !important;
+  }
 }

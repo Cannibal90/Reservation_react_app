@@ -26,7 +26,7 @@ const ManagementPage = () => {
         <Grid container spacing={1} className="gridContainer">
           {options.map((item) => {
             return (
-              <Grid item xl={3} lg={4} md={4} sm={6} xs={10}>
+              <Grid item xl={3} lg={3} md={4} sm={6} xs={9}>
                 <ManagementOption option={item.option} link={item.link} />
               </Grid>
             );

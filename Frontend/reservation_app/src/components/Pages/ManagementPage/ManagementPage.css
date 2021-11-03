@@ -23,3 +23,38 @@
 .mask:hover {
   filter: grayscale(0%) !important;
 }
+
+@media (min-width: 1200px) {
+  .css-s6pnig-MuiGrid-root {
+    max-width: 50% !important;
+    flex-basis: 29% !important;
+  }
+}
+
+@media (max-width: 620px) {
+  .css-s6pnig-MuiGrid-root {
+    max-width: 100% !important;
+    flex-basis: 70% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .css-s6pnig-MuiGrid-root {
+    max-width: 50% !important;
+    flex-basis: 29% !important;
+  }
+}
+
+@media (min-width: 1490px) {
+  .css-s6pnig-MuiGrid-root {
+    max-width: 30% !important;
+    flex-basis: 27% !important;
+  }
+}
+
+@media (min-width: 1700px) {
+  .css-s6pnig-MuiGrid-root {
+    max-width: 30% !important;
+    flex-basis: 22% !important;
+  }
+}

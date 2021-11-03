@@ -1,6 +1,6 @@
 .management-paper {
   padding: 10px;
-  height: 30vh;
+  height: 40vh;
   width: 80%;
   margin: 10px auto;
 }
@@ -14,4 +14,18 @@
 .button-password {
   margin-bottom: 20px !important;
   margin-top: 0 !important;
+}
+
+@media (max-width: 550px) {
+  .button-password {
+    width: 25% !important;
+  }
+}
+@media (min-width: 380px) {
+  .management-paper {
+    padding: 10px;
+    height: 30vh;
+    width: 80%;
+    margin: 10px auto;
+  }
 }

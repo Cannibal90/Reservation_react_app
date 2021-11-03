@@ -22,6 +22,7 @@ import { ComputerStationResponse } from "../../models/StationInterfaces";
 import StationFormLayer from "../StationFormLayer/StationFormLayer";
 import ClearIcon from "@mui/icons-material/Clear";
 import CheckIcon from "@mui/icons-material/Check";
+import "./ComputerAccordition.css";
 
 const ComputerAccordition = () => {
   const [stations, setStations] = useState<ComputerStationResponse[]>();
@@ -227,20 +228,28 @@ const ComputerAccordition = () => {
             {stations &&
               stations.map((station) => (
                 <TableRow key={station.id} className="row">
-                  <TableCell>{station.id}</TableCell>
-                  <TableCell>{station.monitors}</TableCell>
-                  <TableCell>
+                  <TableCell className="cell_item">{station.id}</TableCell>
+                  <TableCell className="cell_item">
+                    {station.monitors}
+                  </TableCell>
+                  <TableCell className="cell_item">
                     {station.headphones ? <CheckIcon /> : <ClearIcon />}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="cell_item">
                     {station.microphone ? <CheckIcon /> : <ClearIcon />}
                   </TableCell>
-                  <TableCell>{station.operatingSystem}</TableCell>
-                  <TableCell>{station.graphicCard}</TableCell>
-                  <TableCell>{station.cpu}</TableCell>
-                  <TableCell>{station.ram}</TableCell>
-                  <TableCell>{station.drive}</TableCell>
-                  <TableCell>{station.networkType}</TableCell>
+                  <TableCell className="cell_item">
+                    {station.operatingSystem}
+                  </TableCell>
+                  <TableCell className="cell_item">
+                    {station.graphicCard}
+                  </TableCell>
+                  <TableCell className="cell_item">{station.cpu}</TableCell>
+                  <TableCell className="cell_item">{station.ram}</TableCell>
+                  <TableCell className="cell_item">{station.drive}</TableCell>
+                  <TableCell className="cell_item">
+                    {station.networkType}
+                  </TableCell>
 
                   <TableCell align="right">
                     <DeleteIcon onClick={() => onStationDelete(station.id)} />

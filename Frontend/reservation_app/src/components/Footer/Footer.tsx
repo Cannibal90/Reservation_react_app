@@ -21,10 +21,18 @@ const Footer = () => {
       </Container>
 
       <Container className="border-footer">
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography
+          className="footer-title"
+          component="div"
+          sx={{ flexGrow: 1 }}
+        >
           © All Rights Reserved. 2021
         </Typography>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography
+          className="footer-title"
+          component="div"
+          sx={{ flexGrow: 1 }}
+        >
           Created by Krystian Kopeć 2021
         </Typography>
         <Typography variant="h6" component="div">
