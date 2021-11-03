@@ -57,43 +57,58 @@ const Header = () => {
     },
   ];
   const isLogged = localStorage.getItem("isLogged") === "true" ? true : false;
+  const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
+  const userRole = user ? user.role : "";
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar className="toolbar">
           <Container sx={{ flexGrow: 1 }} className="toolbar-container">
-            {" "}
             <Button
               size="large"
               color="inherit"
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              <Link className="link" to="/account/reservations">
-                My reservations
+              <Link className="link" to="/startpage">
+                Home
               </Link>
             </Button>
+            {userRole && userRole.length !== 0 && (
+              <Button
+                size="large"
+                color="inherit"
+                component="div"
+                sx={{ flexGrow: 1 }}
+              >
+                <Link className="link" to="/account/reservations">
+                  My reservations
+                </Link>
+              </Button>
+            )}
             <Button
               size="large"
               color="inherit"
               component="div"
               sx={{ flexGrow: 1 }}
             >
-              <Link className="link" to="/classroom">
+              <Link className="link" to={isLogged ? "/classroom" : "/login"}>
                 Reserve
               </Link>
             </Button>
-            <Button
-              size="large"
-              color="inherit"
-              component="div"
-              sx={{ flexGrow: 1 }}
-            >
-              <Link className="link" to="/management">
-                Management
-              </Link>
-            </Button>{" "}
+            {userRole && userRole === "ROLE_ADMIN" && (
+              <Button
+                size="large"
+                color="inherit"
+                component="div"
+                sx={{ flexGrow: 1 }}
+              >
+                <Link className="link" to="/management">
+                  Management
+                </Link>
+              </Button>
+            )}
           </Container>
 
           <IconButton
