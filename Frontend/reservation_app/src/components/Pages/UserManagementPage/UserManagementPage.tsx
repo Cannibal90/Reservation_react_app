@@ -78,14 +78,15 @@ const UserManagementPage = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell className="header border">Id</TableCell>
-              <TableCell className="header border">Username</TableCell>
-              <TableCell className="header border">Password</TableCell>
-              <TableCell className="header border">Role</TableCell>
-              <TableCell className="header border">Name</TableCell>
-              <TableCell className="header border">Surname</TableCell>
-              <TableCell className="header border">Age</TableCell>
-              <TableCell className="header border">City</TableCell>
+              <TableCell className="header border cell_item">Id</TableCell>
+              <TableCell className="header border cell_item">
+                Username
+              </TableCell>
+              <TableCell className="header border cell_item">Role</TableCell>
+              <TableCell className="header border cell_item">Name</TableCell>
+              <TableCell className="header border cell_item">Surname</TableCell>
+              <TableCell className="header border cell_item">Age</TableCell>
+              <TableCell className="header border cell_item">City</TableCell>
               <TableCell className="border"></TableCell>
               <TableCell className="border"></TableCell>
             </TableRow>
@@ -95,13 +96,21 @@ const UserManagementPage = () => {
             {users &&
               users.map((user) => (
                 <TableRow key={user.id}>
-                  <TableCell>{user.id}</TableCell>
-                  <TableCell>{user.username}</TableCell>
-                  <TableCell>{user.role}</TableCell>
-                  <TableCell>{user.userDetails.name}</TableCell>
-                  <TableCell>{user.userDetails.surname}</TableCell>
-                  <TableCell>{user.userDetails.age}</TableCell>
-                  <TableCell>{user.userDetails.city}</TableCell>
+                  <TableCell className="cell_item">{user.id}</TableCell>
+                  <TableCell className="cell_item">{user.username}</TableCell>
+                  <TableCell className="cell_item">{user.role}</TableCell>
+                  <TableCell className="cell_item">
+                    {user.userDetails.name}
+                  </TableCell>
+                  <TableCell className="cell_item">
+                    {user.userDetails.surname}
+                  </TableCell>
+                  <TableCell className="cell_item">
+                    {user.userDetails.age}
+                  </TableCell>
+                  <TableCell className="cell_item">
+                    {user.userDetails.city}
+                  </TableCell>
                   <TableCell
                     align="right"
                     onClick={() => {

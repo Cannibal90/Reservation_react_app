@@ -9,6 +9,8 @@ import {
 import LaboratoryAccordition from "../../LaboratoryAccordition/LaboratoryAccordition";
 import DeskAccordition from "../../DeskAccordition/DeskAccordition";
 import ComputerAccordition from "../../ComputerAccordition/ComputerAccordition";
+import "./LaboratoryManagementPage.css";
+
 const LaboratoryManagementPage = () => {
   return (
     <>
@@ -23,7 +25,7 @@ const LaboratoryManagementPage = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography variant="h4" style={{ fontWeight: 500 }}>
+            <Typography variant="h4" className="subtitle">
               Laboratory rooms
             </Typography>
           </AccordionSummary>
@@ -38,7 +40,7 @@ const LaboratoryManagementPage = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography variant="h4" style={{ fontWeight: 500 }}>
+            <Typography variant="h4" className="subtitle">
               Desks
             </Typography>
           </AccordionSummary>
@@ -53,7 +55,7 @@ const LaboratoryManagementPage = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography variant="h4" style={{ fontWeight: 500 }}>
+            <Typography variant="h4" className="subtitle">
               Computer Stations
             </Typography>
           </AccordionSummary>

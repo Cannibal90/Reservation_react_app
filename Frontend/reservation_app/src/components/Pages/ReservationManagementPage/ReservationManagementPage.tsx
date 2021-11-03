@@ -100,11 +100,27 @@ const ReservationManagementPage = () => {
             {reservations &&
               reservations.map((reservation) => (
                 <TableRow key={reservation.id} className="row">
-                  <TableCell>{reservation.id}</TableCell>
-                  <TableCell>{reservation.durration.beginning}</TableCell>
-                  <TableCell>{reservation.durration.end}</TableCell>
-                  <TableCell>{reservation.stationId}</TableCell>
-                  <TableCell>{reservation.userId}</TableCell>
+                  <TableCell className="cell_item">{reservation.id}</TableCell>
+                  <TableCell className="cell_item">
+                    {new Date(
+                      reservation.durration.beginning
+                    ).toLocaleDateString() +
+                      " " +
+                      new Date(
+                        reservation.durration.beginning
+                      ).toLocaleTimeString()}
+                  </TableCell>
+                  <TableCell className="cell_item">
+                    {new Date(reservation.durration.end).toLocaleDateString() +
+                      " " +
+                      new Date(reservation.durration.end).toLocaleTimeString()}
+                  </TableCell>
+                  <TableCell className="cell_item">
+                    {reservation.stationId}
+                  </TableCell>
+                  <TableCell className="cell_item">
+                    {reservation.userId}
+                  </TableCell>
                   <TableCell align="right">
                     <DeleteIcon
                       onClick={() => onReservationDelete(reservation.id)}

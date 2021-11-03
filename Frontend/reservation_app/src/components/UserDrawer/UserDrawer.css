@@ -1,0 +1,9 @@
+.close_drawer {
+  margin-left: 92%;
+}
+
+@media (min-width: 550px) {
+  .close_drawer {
+    margin-left: 95%;
+  }
+}

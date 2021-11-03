@@ -55,7 +55,7 @@ const StationFormLayer = (props: {
       <Grid container direction="column">
         <TextField
           className="pop-up-title"
-          defaultValue="Desk details"
+          defaultValue="Computer station details"
           InputProps={{
             readOnly: true,
           }}

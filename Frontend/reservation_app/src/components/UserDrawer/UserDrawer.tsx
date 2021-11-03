@@ -1,5 +1,7 @@
+import { CloseOutlined } from "@mui/icons-material";
 import { Drawer } from "@mui/material";
 import UserPaper from "../UserPaper/UserPaper";
+import "./UserDrawer.css";
 
 const UserDrawer = (props: {
   userData: any;
@@ -20,6 +22,12 @@ const UserDrawer = (props: {
   return (
     <>
       <Drawer anchor="right" open={props.open} onClose={closeDrawer}>
+        <CloseOutlined
+          className="close_drawer"
+          onClick={() => {
+            props.onChange(false);
+          }}
+        />
         <UserPaper
           userData={props.userData}
           userId={props.userId}

@@ -7,6 +7,8 @@
 .title {
   text-align: center;
   margin: 20px auto !important;
+  font-size: 35px !important;
+  font-weight: 500;
 }
 
 .row:hover {
@@ -15,4 +17,19 @@
 
 .floorSelect {
   display: flex !important;
+}
+
+.laboratoryContainer {
+  width: 90% !important;
+  margin: 20px auto !important;
+}
+
+/* md */
+@media (min-width: 768px) {
+  .title {
+    font-size: 50px !important;
+  }
+  .laboratoryContainer {
+    width: 80% !important;
+  }
 }

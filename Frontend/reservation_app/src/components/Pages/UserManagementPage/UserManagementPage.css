@@ -4,3 +4,15 @@
 .border {
   border-bottom: 1px solid black !important;
 }
+
+.cell_item {
+  font-size: 0.75rem !important;
+  padding: 5px !important;
+}
+
+@media (min-width: 954px) {
+  .cell_item {
+    font-size: 0.875rem !important;
+    padding: 16px !important;
+  }
+}

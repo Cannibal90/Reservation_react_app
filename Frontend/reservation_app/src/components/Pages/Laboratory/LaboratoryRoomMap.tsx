@@ -9,6 +9,8 @@ import {
   Typography,
   Select,
   MenuItem,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -45,11 +47,8 @@ const LaboratoryRoomMap = () => {
 
   return (
     <>
-      <TableContainer
-        component={Paper}
-        style={{ width: "80%", margin: "20px auto" }}
-      >
-        <Typography variant="h3" component="div" className="title">
+      <TableContainer component={Paper} className="laboratoryContainer">
+        <Typography component="div" className="title">
           Choose one of Laboratory rooms!
         </Typography>
 
@@ -58,21 +57,29 @@ const LaboratoryRoomMap = () => {
             <TableRow>
               <TableCell className="header border">Id</TableCell>
               <TableCell className="header border">
-                Floor
-                <Select value={floor} onChange={(event) => handleChange(event)}>
-                  <MenuItem className="floorSelect" value={-1}>
-                    All
-                  </MenuItem>
-                  <MenuItem className="floorSelect" value={0}>
-                    Ground
-                  </MenuItem>
-                  <MenuItem className="floorSelect" value={1}>
-                    First
-                  </MenuItem>
-                  <MenuItem className="floorSelect" value={2}>
-                    Second
-                  </MenuItem>
-                </Select>
+                <FormControl fullWidth>
+                  <InputLabel style={{ fontWeight: 600, fontSize: "20px" }}>
+                    Floor
+                  </InputLabel>
+                  <Select
+                    label="Floor__"
+                    value={floor}
+                    onChange={(event) => handleChange(event)}
+                  >
+                    <MenuItem className="floorSelect" value={-1}>
+                      All
+                    </MenuItem>
+                    <MenuItem className="floorSelect" value={0}>
+                      Ground
+                    </MenuItem>
+                    <MenuItem className="floorSelect" value={1}>
+                      First
+                    </MenuItem>
+                    <MenuItem className="floorSelect" value={2}>
+                      Second
+                    </MenuItem>
+                  </Select>
+                </FormControl>
               </TableCell>
               <TableCell className="header border">Room supervisor</TableCell>
               <TableCell className="header border">Desks</TableCell>
@@ -83,7 +90,7 @@ const LaboratoryRoomMap = () => {
           <TableBody>
             {rooms &&
               rooms
-                .filter((r) => options.includes(r.floor))
+                // .filter((r) => options.includes(r.floor))
                 .map((room) => (
                   <TableRow key={room.id} className="row">
                     <TableCell>{room.id}</TableCell>

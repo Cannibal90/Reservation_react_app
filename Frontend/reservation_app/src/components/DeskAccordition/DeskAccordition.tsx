@@ -20,6 +20,7 @@ import { useEffect, useState } from "react";
 import { LaboratoryService } from "../../services/laboratory/LaboratoryService";
 import { DeskResponse } from "../../models/DeskInterfaces";
 import DeskFormLayer from "../DeskFormLayer/DeskFormLayer";
+import "./DeskAccordition.css";
 
 const LaboratoryAccordition = () => {
   const [desks, setDesks] = useState<DeskResponse[]>();
@@ -146,9 +147,11 @@ const LaboratoryAccordition = () => {
             {desks &&
               desks.map((desk) => (
                 <TableRow key={desk.id} className="row">
-                  <TableCell>{desk.id}</TableCell>
-                  <TableCell>{desk.deskType}</TableCell>
-                  <TableCell>{desk.stationsCount}</TableCell>
+                  <TableCell className="cell_item">{desk.id}</TableCell>
+                  <TableCell className="cell_item">{desk.deskType}</TableCell>
+                  <TableCell className="cell_item">
+                    {desk.stationsCount}
+                  </TableCell>
                   <TableCell align="right">
                     <DeleteIcon onClick={() => onDeskDelete(desk.id)} />
                   </TableCell>

@@ -1,13 +1,20 @@
 .signin-paper {
   padding: 20px;
   height: 55vh;
-  width: 400px;
+  width: 80%;
   margin: 20px auto;
+}
+
+@media (min-width: 500px) {
+  .signin-paper {
+    height: 55vh;
+    width: 400px;
+    margin: 20px auto;
+  }
 }
 
 @media (min-width: 1920px) {
   .signin-paper {
-    padding: 20px;
     height: 35vh;
     width: 400px;
     margin: 20px auto;
