@@ -38,7 +38,7 @@ const MessageSnackbar = () => {
 
   return (
     <>
-      <Snackbar open={show} autoHideDuration={6000}>
+      <Snackbar open={show} autoHideDuration={4000} onClose={onClose}>
         <Alert onClose={onClose} severity={type} sx={{ width: "100%" }}>
           {message}
         </Alert>

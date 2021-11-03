@@ -90,7 +90,7 @@ const LaboratoryRoomMap = () => {
           <TableBody>
             {rooms &&
               rooms
-                // .filter((r) => options.includes(r.floor))
+                .filter((r) => options.includes(r.floor))
                 .map((room) => (
                   <TableRow key={room.id} className="row">
                     <TableCell>{room.id}</TableCell>

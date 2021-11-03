@@ -12,8 +12,13 @@ import ManagementPage from "../Pages/ManagementPage/ManagementPage";
 import UserManagementPage from "../Pages/UserManagementPage/UserManagementPage";
 import ReservationManagementPage from "../Pages/ReservationManagementPage/ReservationManagementPage";
 import LaboratoryManagementPage from "../Pages/LaboratoryManagementPage/LaboratoryManagementPage";
+import { UnautorizedPage } from "../Pages/UnauthorizedPage/UnauthorizedPage";
 
 const MainRouting = () => {
+  const isLogged = localStorage.getItem("isLogged") === "true" ? true : false;
+  const user = JSON.parse(localStorage.getItem("currentUser") || "{}");
+  const userRole = user ? user.role : "";
+
   return (
     <Switch>
       <Route path="/startpage">
@@ -26,31 +31,47 @@ const MainRouting = () => {
         <RegisterPage />
       </Route>
       <Route path="/classroom/:id">
-        <DeskMap />
+        {isLogged ? <DeskMap /> : <UnautorizedPage />}
       </Route>
       <Route path="/classroom">
-        <LaboratoryRoomMap />
+        {isLogged ? <LaboratoryRoomMap /> : <UnautorizedPage />}
       </Route>
       <Route path="/reserve/station/:id/:startDate?/:endDate?">
-        <ReservationPage />
+        {isLogged ? <ReservationPage /> : <UnautorizedPage />}
       </Route>
       <Route path="/account/reservations">
-        <UserReservationsPage />
+        {isLogged ? <UserReservationsPage /> : <UnautorizedPage />}
       </Route>
       <Route path="/account/management">
-        <AccountManagement />
+        {isLogged ? <AccountManagement /> : <UnautorizedPage />}
       </Route>
       <Route path="/management/users">
-        <UserManagementPage />
+        {userRole && userRole === "ROLE_ADMIN" ? (
+          <UserManagementPage />
+        ) : (
+          <UnautorizedPage />
+        )}
       </Route>
       <Route path="/management/reservations">
-        <ReservationManagementPage />
+        {userRole && userRole === "ROLE_ADMIN" ? (
+          <ReservationManagementPage />
+        ) : (
+          <UnautorizedPage />
+        )}
       </Route>
       <Route path="/management/laboratory">
-        <LaboratoryManagementPage />
+        {userRole && userRole === "ROLE_ADMIN" ? (
+          <LaboratoryManagementPage />
+        ) : (
+          <UnautorizedPage />
+        )}
       </Route>
       <Route path="/management">
-        <ManagementPage />
+        {userRole && userRole === "ROLE_ADMIN" ? (
+          <ManagementPage />
+        ) : (
+          <UnautorizedPage />
+        )}
       </Route>
       <Redirect from="/*" to="/startpage" />
     </Switch>
