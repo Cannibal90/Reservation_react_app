@@ -17,10 +17,11 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import ViewAgendaIcon from "@mui/icons-material/ViewAgenda";
 import DriveFolderUploadIcon from "@mui/icons-material/DriveFolderUpload";
 import NetworkWifiIcon from "@mui/icons-material/NetworkWifi";
+import { TableRestaurantOutlined } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import "./ComputerStation.css";
 
-const ComputerStation = (props: { station: any }) => {
+const ComputerStation = (props: { station: any; deskType: any }) => {
   const station = props.station;
 
   const booleanHandler = (value: boolean) => {
@@ -113,6 +114,12 @@ const ComputerStation = (props: { station: any }) => {
               <NetworkWifiIcon />
             </ListItemIcon>
             <ListItemText primary={`Network type: ` + station.networkType} />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <TableRestaurantOutlined />
+            </ListItemIcon>
+            <ListItemText primary={`Desk type: ` + props.deskType} />
           </ListItem>
         </List>
 

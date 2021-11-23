@@ -57,7 +57,10 @@ const Desk = (props: { desk: any }) => {
       </Paper>
       <Drawer anchor="right" open={open} onClose={closeDrawer}>
         <Paper className="drawer-container">
-          <ComputerStation station={selectedStation} />
+          <ComputerStation
+            station={selectedStation}
+            deskType={props.desk.deskType}
+          />
         </Paper>
       </Drawer>
     </>
