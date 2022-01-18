@@ -10,7 +10,7 @@ const ManagementPage = () => {
       link: "/management/users",
     },
     {
-      option: "Laboratory",
+      option: "Laboratories",
       link: "/management/laboratory",
     },
     {

@@ -89,7 +89,6 @@ const AccountManagement = () => {
   };
 
   const deleteUser = () => {
-    //TODO message with agreement
     userService.deleteUserById(userId).then(() => {
       localStorage.clear();
       window.location.pathname = "/";

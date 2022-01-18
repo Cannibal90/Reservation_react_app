@@ -16,7 +16,7 @@ const LaboratoryManagementPage = () => {
     <>
       <Paper style={{ width: "80%", margin: "20px auto" }}>
         <Typography variant="h3" component="div" className="title">
-          Laboratory management
+          Laboratories management
         </Typography>
 
         <Accordion>
